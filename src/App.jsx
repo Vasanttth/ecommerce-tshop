@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Product from "./pages/Product";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 import Productdetails from "./pages/Productdetails";
 import Cart from "./pages/Cart";
 import Register from "./pages/Register";
