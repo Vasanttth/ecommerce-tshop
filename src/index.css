@@ -1,0 +1,19 @@
+/* Global Theme Variables */
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #4ecdc4;
+  --text-color: #111;
+  --background-color: #ffffff;
+
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+}
+
+/* Global Defaults */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+}
