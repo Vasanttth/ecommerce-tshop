@@ -90,3 +90,30 @@ nav a:hover {
   color: white;
 }
 
+/*mobile view*/
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .nav-container ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cart-icon {
+    font-size: 22px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+  }
+}
