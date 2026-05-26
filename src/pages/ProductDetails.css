@@ -1,0 +1,139 @@
+.mainCard {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 50px 80px;
+  background: #f8f8f8;
+  min-height: calc(100vh - 80px);
+  align-items: flex-start;
+}
+
+.prodimg img {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.prdDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+}
+
+.prdDetails h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.desc {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.prdDetails p {
+  font-size: 15px;
+  color: #333;
+  margin: 0;
+}
+
+.qty-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 8px;
+}
+
+.qty-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.qty-box button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qty-box button:hover {
+  background: #f0f0f0;
+}
+
+.qty-box span {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+}
+
+.btn-cart {
+  margin-top: 16px;
+  padding: 12px 32px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-cart:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-buy {
+  padding: 12px 32px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-buy:hover {
+  background: #333;
+  border-color: #333;
+}
+
+@media (max-width: 768px) {
+  .mainCard {
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 24px;
+  }
+
+  .prodimg img {
+    width: 100%;
+    height: 320px;
+  }
+
+  .prdDetails {
+    max-width: 100%;
+  }
+}
