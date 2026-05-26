@@ -9,7 +9,7 @@ const Orders = () => {
     if (!user) return;
 
     axios
-      .get(`http://localhost:8084/api/orders/user/${user.id}`)
+      .get(`https://orderservice-ir1z.onrender.com${user.id}`)
       .then((res) => setOrders(res.data))
       .catch((err) => console.error("Error fetching orders:", err));
   }, []);

@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "./productDetail.css";
+import "./ProductDetails.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import productApi from "../api/productApi";
 import cartApi from "../api/cartApi";
+import orderApi from "../api/orderApi";
 
 const Productdetails = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    axios
-       productApi.get(`/${id}`)
+    productApi
+      .get(`/api/products/${id}`)
       .then((res) => {
         setData(res.data);
       })
@@ -31,76 +31,74 @@ const Productdetails = () => {
     setQuantity(quantity + 1);
   };
 
-const addToCart = () => {
-  const loggedInUser = JSON.parse(localStorage.getItem("user"));
+  const addToCart = () => {
+    const loggedInUser = JSON.parse(localStorage.getItem("user"));
 
-  if (!loggedInUser) {
-    alert("Please login first");
-    return;
-  }
+    if (!loggedInUser) {
+      alert("Please login first");
+      return;
+    }
 
-  const cartItem = {
-    userId: loggedInUser.id,
-    productId: data.id,
-    productName: data.name,
-    size: data.size,
-    color: data.color,
-    imageUrl: data.imageUrl,
-    price: data.price,
-    quantity: quantity,
+    const cartItem = {
+      userId: loggedInUser.id,
+      productId: data.id,
+      productName: data.name,
+      size: data.size,
+      color: data.color,
+      imageUrl: data.imageUrl,
+      price: data.price,
+      quantity: quantity,
+    };
+
+    cartApi
+      .post("/add", cartItem)
+      .then(() => {
+        alert("Product added to cart!");
+      })
+      .catch((err) => {
+        console.error("Error adding to cart:", err);
+        alert("Failed to add product to cart");
+      });
   };
-
-  axios
-     cartApi.post("/add", cartItem)
-    .then((res) => {
-      console.log("Cart response:", res.data);
-      alert("Product added to cart!");
-    })
-    .catch((err) => {
-      console.error("Error adding to cart:", err);
-      alert("Failed to add product to cart");
-    });
-};
-
-  if (!data) {
-    return <h2>Loading Product...</h2>;
-  }
 
   const buyNow = () => {
-  const loggedInUser = JSON.parse(localStorage.getItem("user"));
+    const loggedInUser = JSON.parse(localStorage.getItem("user"));
 
-  if (!loggedInUser) {
-    alert("Please login first");
-    return;
-  }
+    if (!loggedInUser) {
+      alert("Please login first");
+      return;
+    }
 
-  const order = {
-    userId: loggedInUser.id,
-    totalAmount: data.price * quantity,
-    items: [
-      {
-        productId: data.id,
-        productName: data.name,
-        size: data.size,
-        color: data.color,
-        imageUrl: data.imageUrl,
-        price: data.price,
-        quantity: quantity,
-      },
-    ],
+    const order = {
+      userId: loggedInUser.id,
+      totalAmount: data.price * quantity,
+      items: [
+        {
+          productId: data.id,
+          productName: data.name,
+          size: data.size,
+          color: data.color,
+          imageUrl: data.imageUrl,
+          price: data.price,
+          quantity: quantity,
+        },
+      ],
+    };
+
+    orderApi
+      .post("/place", order)
+      .then(() => {
+        alert("Order placed successfully!");
+      })
+      .catch((err) => {
+        console.error("Error placing order:", err);
+        alert("Failed to place order");
+      });
   };
 
-  axios
-    .post("http://localhost:8084/api/orders/place", order)
-    .then((res) => {
-      console.log("Order placed:", res.data);
-      alert("Order placed successfully!");
-    })
-    .catch((err) => {
-      console.error("Error placing order:", err);
-      alert("Failed to place order");
-    });
-};
+  if (!data) {
+    return <h2 style={{ padding: "30px" }}>Loading Product...</h2>;
+  }
 
   return (
     <div className="mainCard">
@@ -130,8 +128,8 @@ const addToCart = () => {
         </button>
 
         <button className="btn-buy" onClick={buyNow}>
-  Buy Now
-</button>
+          Buy Now
+        </button>
       </div>
     </div>
   );

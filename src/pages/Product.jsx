@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Product.css";
 import { useNavigate } from "react-router-dom";
-import API from "../api/api";
 import productApi from "../api/productApi";
 
 const Product = () => {
@@ -9,8 +8,10 @@ const Product = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    productApi.get("")
+    productApi
+      .get("/api/products")
       .then((res) => {
+        console.log("Products:", res.data);
         setProducts(res.data);
       })
       .catch((err) => {
@@ -19,18 +20,14 @@ const Product = () => {
   }, []);
 
   const handleClick = (shirt) => {
-    navigate(`/productDetails/${shirt.id}`);
+    navigate(`/productDetails/${shirt.id}`, { state: shirt });
   };
 
   return (
     <div>
       <div className="cont">
         {products.map((shirt) => (
-          <div
-            className="p1"
-            key={shirt.id}
-            onClick={() => handleClick(shirt)}
-          >
+          <div className="p1" key={shirt.id} onClick={() => handleClick(shirt)}>
             <img src={shirt.imageUrl} alt={shirt.name} />
             <p>{shirt.name}</p>
             <p>₹{shirt.price}</p>

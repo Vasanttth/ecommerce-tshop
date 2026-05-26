@@ -12,6 +12,7 @@ const Cart = () => {
     cartApi
       .get(`/${loggedInUser.id}`)
       .then((res) => {
+        console.log("Cart response:", res.data);
         setCartItems(res.data);
       })
       .catch((err) => {
