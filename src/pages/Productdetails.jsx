@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ProductDetails.css";
+import "./productdetails.css";
 import { useParams } from "react-router-dom";
 import productApi from "../api/productApi";
 import cartApi from "../api/cartApi";
