@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const cartApi = axios.create({
-  baseURL: "http://localhost:8082/api/cart",
+  baseURL: "https://cartservice-mpui.onrender.com",
 });
 
 export default cartApi;

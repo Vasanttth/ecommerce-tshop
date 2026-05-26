@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const userApi = axios.create({
-  baseURL: "http://localhost:8083/api/users",
+  baseURL: "https://userservice-i9oa.onrender.com",
 });
 
 export default userApi;

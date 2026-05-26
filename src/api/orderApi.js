@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const orderApi = axios.create({
-  baseURL: "http://localhost:8084/api/orders",
+  baseURL: "https://orderservice-ir1z.onrender.com",
 });
 
 export default orderApi;
