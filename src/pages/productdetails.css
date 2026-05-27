@@ -76,3 +76,43 @@
   margin-bottom: 30px;
   cursor: pointer;
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .mainCard {
+    flex-direction: column;
+    padding: 25px 15px;
+  }
+
+  .prodimg img {
+    width: 100%;
+  }
+
+  .prdDetails {
+    padding-left: 0;
+  }
+
+  .prdDetails h2 {
+    font-size: 22px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .desc,
+  .prdDetails p {
+    font-size: 13px;
+  }
+
+  .qty-box {
+    width: 100px;
+    padding: 6px 10px;
+  }
+
+  .btn-cart,
+  .btn-buy {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

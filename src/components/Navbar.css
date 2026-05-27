@@ -91,3 +91,58 @@ nav a:hover {
 }
 
 /*mobile view*/
+@media (max-width: 768px) {
+
+  nav {
+    padding: 8px 10px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .nav-container ul {
+    gap: 12px;
+    margin-left: 20px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .cart-icon {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+  .nav-btn {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .nav-container ul {
+    gap: 8px;
+    margin-left: 10px;
+  }
+
+  nav a {
+    font-size: 10px;
+  }
+
+  .cart-icon {
+    font-size: 14px;
+    margin-right: 5px;
+  }
+
+  .nav-btn {
+    font-size: 9px;
+    padding: 3px 5px;
+  }
+}

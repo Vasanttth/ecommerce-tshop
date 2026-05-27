@@ -23,3 +23,36 @@
     
 
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .foot {
+    width: 100%;
+    height: 180px;
+  }
+
+  .foot h3 {
+    font-size: 18px;
+  }
+
+  .foot p {
+    font-size: 12px;
+  }
+
+  .footerright {
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-left: 0;
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  .footerright h3 {
+    font-size: 14px;
+  }
+
+  .footerright p {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+}
